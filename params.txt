@@ -1,0 +1,12 @@
+num_cells   = 128
+cfl         = 0.4
+gamma       = 5/3
+t_stop      = 3.0
+
+sim_name    = KH # KH (Kelvin Helmholtz) / SW (Swirl) / SN (Supernova)
+
+slope_limit = true
+
+save_plots  = true
+save_data   = true
+output_freq = 25 # output at multiples of simulation index
