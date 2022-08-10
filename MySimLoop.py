@@ -1,7 +1,7 @@
 import numpy as np
-from SimFuncs import *
-from PlotFuncs import *
-from HelperFuncs import *
+from MySimFuncs import *
+from MyPlotFuncs import *
+from MyHelperFuncs import *
 
 
 def sim(ICs_cons, grid, args):
@@ -23,7 +23,7 @@ def sim(ICs_cons, grid, args):
   ## initialiase variables for quiver plot
   domain = np.linspace(0.0, 1.0, num_cells)
   posx, posy = np.meshgrid(domain, domain)
-  sr = max(1, num_cells // 25)
+  sample_rate = max(1, num_cells // 25)
   ## enter simulation loop
   while t_sim < t_stop:
     ## convert conserved quantities to primitive
@@ -98,10 +98,10 @@ def sim(ICs_cons, grid, args):
         plotData(
           filepath_data = f"{folder_name}/{str_iter_count}",
           f_matrix      = rho.T,
-          posx_matrix   = posx[::sr, ::sr],
-          posy_matrix   = posy[::sr, ::sr],
-          vecx_matrix   = velx.T[::sr, ::sr],
-          vecy_matrix   = vely.T[::sr, ::sr],
+          posx_matrix   = posx[  ::sample_rate, ::sample_rate],
+          posy_matrix   = posy[  ::sample_rate, ::sample_rate],
+          vecx_matrix   = velx.T[::sample_rate, ::sample_rate],
+          vecy_matrix   = vely.T[::sample_rate, ::sample_rate],
           cbar_label    = r"density $(\rho$)",
           text_label    = rf"$t = {t_sim:.2f}$"
         )

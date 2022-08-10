@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import os, time
-from HelperFuncs import *
-from SimICs import dict_ICs
-from SimLoop import sim
-from SimFuncs import FiniteVolumeGrid
-from PlotFuncs import aniEvolution
+from MyHelperFuncs import *
+from MySimICs import dict_ICs
+from MySimLoop import sim
+from MySimFuncs import FiniteVolumeGrid
+from MyPlotFuncs import aniEvolution
 
 # clear terminal window
 os.system("clear")

@@ -35,6 +35,8 @@ def readParams(file_name):
   with open(file_name, "r") as f:
     f_lines = f.read().splitlines()
     for line in f_lines:
+      if len(line) == 0: continue
+      if line[0] == "#": continue
       line_elems = ( line.split("#")[0] ).split()
       if ("=" in line) and (len(line_elems) > 2):
         ## check if boolean

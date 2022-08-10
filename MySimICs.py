@@ -1,5 +1,5 @@
 import numpy as np
-from SimFuncs import *
+from MySimFuncs import *
 
 
 def KelvinHelholtz(grid, gamma=5/3):
