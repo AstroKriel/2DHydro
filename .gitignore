@@ -1,3 +1,7 @@
 .DS_Store
 *.mp4
-*/
+__pycache__/
+MyLibrary/__pycache__/
+KH/
+SW/
+SN/

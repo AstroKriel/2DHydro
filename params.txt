@@ -1,12 +1,14 @@
-num_cells   = 128
+num_cells   = 384 # 128
+t_stop      = 2.0
 cfl         = 0.4
 gamma       = 5/3
-t_stop      = 3.0
 
-sim_name    = KH # KH (Kelvin Helmholtz) / SW (Swirl) / SN (Supernova)
+## options: KH (Kelvin Helmholtz) / SW (Swirl) / SN (Supernova)
+sim_name    = KH
 
-slope_limit = true
+## bolean: 0 (false), 1 (true)
+slope_limit = 1
 
-save_plots  = true
-save_data   = true
-output_freq = 25 # output at multiples of simulation index
+save_plots  = 1 # figures
+save_data   = 0 # data dumps
+output_freq = 25 # output sim. index freq.

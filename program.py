@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import os, time
-from MyHelperFuncs import *
-from MySimICs import dict_ICs
-from MySimLoop import sim
-from MySimFuncs import FiniteVolumeGrid
-from MyPlotFuncs import aniEvolution
+from MyLibrary.MyHelperFuncs import *
+from MyLibrary.MySimICs import dict_ICs
+from MyLibrary.MySimLoop import sim
+from MyLibrary.MySimFuncs import FiniteVolumeGrid
+from MyLibrary.MyPlotFuncs import aniEvolution
 
 # clear terminal window
 os.system("clear")
@@ -28,20 +28,16 @@ def main():
   ## initialise state quantities (in conservative form)
   print("Initialising simulation...")
   try: ICs_cons = dict_ICs[sim_name](grid, args["gamma"])
-  except: print(f"Initial conditions '{sim_name}' not implimented.")
+  except: Exception(f"Initial conditions '{sim_name}' not implimented.")
   print(" ")
 
   # ## the following achieves the same thing as above, but requires Python 3.10+
   # ## add this import statement above: "from SimICs import *"
   # match sim_name:
-  #   case "KH" | "kh":
-  #     ICs_cons = KelvinHelholtz(grid, args["gamma"])
-  #   case "SW" | "sw":
-  #     ICs_cons = Swirl(grid, args["gamma"])
-  #   case "SN" | "sn":
-  #     ICs_cons = Supernova(grid, args["gamma"])
-  #   case _:
-  #     raise Exception(f"Initial conditions '{sim_name}' not implimented.")
+  #   case "KH" | "kh": ICs_cons = KelvinHelholtz(grid, args["gamma"])
+  #   case "SW" | "sw": ICs_cons = Swirl(grid, args["gamma"])
+  #   case "SN" | "sn": ICs_cons = Supernova(grid, args["gamma"])
+  #   case _: Exception(f"Initial conditions '{sim_name}' not implimented.")
   # print(" ")
 
   ## create output folders
@@ -53,7 +49,7 @@ def main():
     createFolder(f"{sim_name}/velx")
     createFolder(f"{sim_name}/vely")
     createFolder(f"{sim_name}/press")
-    print(" ")
+  print(" ")
 
   ## run simulation
   print("Running simulation...")
